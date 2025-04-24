@@ -21,6 +21,22 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+        }
+    
+        #content-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+    
+        #content {
+            flex: 1;
+        }
+    </style>
+    
 
 </head>
 

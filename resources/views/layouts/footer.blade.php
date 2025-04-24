@@ -1,7 +1,5 @@
-<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Sisfo pegawai created by Fachry </span>
-        </div>
+<footer class="bg-white mt-auto py-3">
+    <div class="container text-center">
+        <span class="text-muted">Copyright &copy; Sisfo Pegawai created by Fachry</span>
     </div>
 </footer>

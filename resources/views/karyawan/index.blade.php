@@ -54,35 +54,30 @@
 
                                         <tbody>
                                             <?php $no = 1; ?>
-                                            @foreach ($karyawan as $karyawan)
-                                                <tr>
-                                                    <td>{{ $no++ }}</td>
-                                                    <td>
-                                                        @if ($karyawan->foto)
-                                                        <img style="max-widht:100px; max-height:100px" src="{{ url('foto').'/'.$karyawan->foto}}">
-                                                        @endif
-                                                    </td>
-                                                    <td>{{ $karyawan->nip}}</td>
-                                                    <td>{{ $karyawan->nama_karyawan}}</td>
-                                                    <td>{{ $karyawan->jenis_kelamin}}</td>
-                                                    <td>{{ $karyawan->gaji_karyawan}}</td>
-                                                    <td>{{ $karyawan->alamat}}</td>
-                                                    <td>{{ $karyawan->departemen['nama_departemen']}}</td>
-                                                    
-                                                    <td>
-                                                        <a class="btn btn-sm btn-primary"
-                                                            href="{{ url('karyawan/' . $karyawan->nip . '/edit') }}">Edit</a>
-                                                        <form
-                                                            action="{{ url('karyawan/' . $karyawan->nip) }}"
-                                                            method="POST" style="display: inline-block">
-                                                            @csrf
-                                                            @method('Delete')
-                                                            <button class="btn btn-danger"
-                                                                onclick="return confirm ('apakah anda ingin menghapus data?')">Delete</button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
+                                            @foreach ($karyawan as $item)
+    <tr>
+        <td>{{ $no++ }}</td>
+        <td>
+            @if ($item->foto)
+                <img style="max-width:100px; max-height:100px" src="{{ url('foto').'/'.$item->foto }}">
+            @endif
+        </td>
+        <td>{{ $item->nip }}</td>
+        <td>{{ $item->nama_karyawan }}</td>
+        <td>{{ $item->jenis_kelamin }}</td>
+        <td>{{ $item->gaji_karyawan }}</td>
+        <td>{{ $item->alamat }}</td>
+        <td>{{ $item->departemen['nama_departemen'] ?? '-' }}</td>
+        <td>
+            <a class="btn btn-sm btn-primary" href="{{ url('karyawan/' . $item->nip . '/edit') }}">Edit</a>
+            <form action="{{ url('karyawan/' . $item->nip) }}" method="POST" style="display: inline-block">
+                @csrf
+                @method('Delete')
+                <button class="btn btn-danger" onclick="return confirm('apakah anda ingin menghapus data?')">Delete</button>
+            </form>
+        </td>
+    </tr>
+@endforeach
                                         </tbody>
                                     </table>
                                 </div>
